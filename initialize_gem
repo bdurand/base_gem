@@ -43,11 +43,11 @@ end
 
 # Rename file if basename matches old name
 def rename_file(file_path, old_basename, new_basename)
-  return file_path unless File.basename(file_path, ".*") == old_basename
+  return file_path unless File.basename(file_path, ".*").start_with?(old_basename)
 
   dir = File.dirname(file_path)
-  ext = File.extname(file_path)
-  new_path = File.join(dir, "#{new_basename}#{ext}")
+  basename = File.basename(file_path).sub(old_basename, new_basename)
+  new_path = File.join(dir, basename)
 
   if file_path != new_path
     FileUtils.mv(file_path, new_path)
