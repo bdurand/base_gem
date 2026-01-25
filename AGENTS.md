@@ -13,5 +13,3 @@ This project uses the standardrb style guide. Run `bundle exec standardrb --fix`
 ## Testing
 
 Run the test suite with `bundle exec rspec`.
-
-Avoid using doubles and stubbing methods in tests unless absolutely necessary. Prefer using real objects to ensure tests accurately reflect behavior.
