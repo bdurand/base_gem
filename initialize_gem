@@ -104,7 +104,7 @@ replacements = {
   "${YEAR}" => year.to_s,
   "${AUTHOR}" => author,
   "${EMAIL}" => email,
-  "${GITHUB_USER_NAME}" => github_username
+  "${GITHUB_USERNAME}" => github_username
 }
 
 # Get all files recursively, excluding certain directories
