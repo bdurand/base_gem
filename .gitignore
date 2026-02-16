@@ -11,3 +11,5 @@ log/*.log
 pkg/
 rdoc/
 doc/
+.claude/
+.conductor/
