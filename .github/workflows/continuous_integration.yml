@@ -10,6 +10,7 @@ on:
   pull_request:
     branches-ignore:
       - actions-*
+  workflow_dispatch:
 
 env:
   BUNDLE_CLEAN: "true"
@@ -28,7 +29,7 @@ jobs:
             yard: true
             standardrb: true
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Set up Ruby ${{ matrix.ruby }}
       uses: ruby/setup-ruby@v1
       with:
@@ -55,7 +56,6 @@ jobs:
     - name: standardrb
       if:   matrix.standardrb == true
       run:  bundle exec standardrb
-
     - name: yard
       if: matrix.yard == true
       run:  bundle exec yard doc --fail-on-warning
