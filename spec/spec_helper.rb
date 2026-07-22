@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
-require "bundler/setup"
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
+
+require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
+
+require "active_record"
+
+begin
+  require "simplecov"
+  SimpleCov.start do
+    skip ["/spec/"]
+  end
+rescue LoadError
+end
+
+Bundler.require(:default, :test)
 
 require_relative "../lib/base_gem"
 
